@@ -1,0 +1,37 @@
+{
+  "name": "nfe-disponibilidade",
+  "version": "1.0.0",
+  "description": "Facilita a verificação da disponibilidade dos web services da NF-e",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit testes.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brasil-js/nfe-disponibilidade.git"
+  },
+  "keywords": [
+    "nfe",
+    "nota",
+    "fiscal",
+    "eletronica",
+    "disponibilidade",
+    "sefaz",
+    "consulta",
+    "brasil",
+    "gammasoft"
+  ],
+  "author": "Renato Gama <renato@gammasoft.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brasil-js/nfe-disponibilidade/issues"
+  },
+  "homepage": "https://github.com/brasil-js/nfe-disponibilidade",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "request": "^2.67.0"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.9.1"
+  }
+}
