@@ -1,35 +1,15 @@
 var request = require('request'),
     cheerio = require('cheerio'),
 
-    url = 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx',
-    colunas = [
-        'autorizacao',
-        'retornoAutorizacao',
-        'inutilizacao',
-        'consultaProtocolo',
-        'statusServico',
-        'consultaCadastro',
-        'recepcaoEvento'
-    ];
+    url = 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx';
 
 function obterStatus(imagem) {
-    if(imagem === 'imagens/bola_verde_P.png') {
-        return 'disponivel';
-    }
-
-    if(imagem === 'imagens/bola_verde_G.png') {
-        return 'disponivel';
-    }
-
-    if(imagem === 'imagens/bola_amarela_G.png') {
-        return 'alerta';
-    }
-
-    if(imagem === 'imagens/bola_vermelho_G.png') {
-        return 'indisponivel';
-    }
-
-    return null;
+    return {
+        'imagens/bola_verde_P.png': 'disponivel',
+        'imagens/bola_verde_G.png': 'disponivel',
+        'imagens/bola_amarela_G.png': 'alerta',
+        'imagens/bola_vermelho_G.png': 'indisponivel'
+    }[imagem] || null;
 }
 
 function fazerParse(html) {
@@ -45,7 +25,15 @@ function fazerParse(html) {
         resultado[autorizador] = {};
 
         $(tr).find('td > img').each(function(j, img) {
-            var coluna = colunas[j],
+            var coluna = [
+                    'autorizacao',
+                    'retornoAutorizacao',
+                    'inutilizacao',
+                    'consultaProtocolo',
+                    'statusServico',
+                    'consultaCadastro',
+                    'recepcaoEvento'
+                ][j],
                 imagem = $(img).attr('src');
 
             resultado[autorizador][coluna] = obterStatus(imagem);
