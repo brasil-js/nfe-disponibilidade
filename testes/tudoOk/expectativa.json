@@ -1,0 +1,138 @@
+{
+    "ultimaVerificacao": "2016-01-19T13:45:15.000Z",
+    "am": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "ba": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "ce": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "go": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "mg": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "ms": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "mt": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "pe": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "pr": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "rs": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "sp": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "svan": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": null,
+        "recepcaoEvento": "disponivel"
+    },
+    "svrs": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": "disponivel",
+        "recepcaoEvento": "disponivel"
+    },
+    "svc-an": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": null,
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": null,
+        "recepcaoEvento": "disponivel"
+    },
+    "svc-rs": {
+        "autorizacao": "disponivel",
+        "retornoAutorizacao": "disponivel",
+        "inutilizacao": "disponivel",
+        "consultaProtocolo": "disponivel",
+        "statusServico": "disponivel",
+        "consultaCadastro": null,
+        "recepcaoEvento": "disponivel"
+    }
+}

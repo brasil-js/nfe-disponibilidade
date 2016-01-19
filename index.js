@@ -1,7 +1,12 @@
 var request = require('request'),
     cheerio = require('cheerio'),
+    moment = require('moment'),
 
-    url = 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx';
+    url = 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx',
+    regexDeUltimaVerificacao = /.ltima Verifica..o:\s([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}\s[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2})/,
+    DISPONIVEL = 'disponivel',
+    ALERTA = 'alerta',
+    INDISPONIVEL = 'indisponivel';
 
 function obterColuna(indice) {
     return [
@@ -17,17 +22,34 @@ function obterColuna(indice) {
 
 function obterStatus(imagem) {
     return {
-        'imagens/bola_verde_P.png': 'disponivel',
-        'imagens/bola_verde_G.png': 'disponivel',
-        'imagens/bola_amarela_G.png': 'alerta',
-        'imagens/bola_vermelho_G.png': 'indisponivel'
+        'imagens/bola_verde_P.png': DISPONIVEL,
+        'imagens/bola_verde_G.png': DISPONIVEL,
+        'imagens/bola_amarela_P.png': ALERTA,
+        'imagens/bola_amarela_G.png': ALERTA,
+        'imagens/bola_vermelho_P.png': INDISPONIVEL,
+        'imagens/bola_vermelho_G.png': INDISPONIVEL
     }[imagem] || null;
+}
+
+function extrairUltimaVerificacao(html) {
+    var match = html.match(regexDeUltimaVerificacao),
+        ultimaVerificacao;
+
+    if(match) {
+        ultimaVerificacao = new moment(match[1], 'D/M/YYYY HH:mm:ss');
+        ultimaVerificacao = ultimaVerificacao.toDate();
+        return ultimaVerificacao.toISOString();
+    }
+
+    return null;
 }
 
 function fazerParse(html) {
     var $ = cheerio.load(html),
         trSelector = 'table.tabelaListagemDados tr.linhaImparCentralizada, tr.linhaParCentralizada',
-        resultado = {};
+        resultado = {
+            ultimaVerificacao: extrairUltimaVerificacao(html)
+        };
 
     $(trSelector).each(function(i, tr) {
         var $tr = $(tr),
@@ -59,8 +81,10 @@ function consultarDisponibilidade(callback) {
             return callback(err);
         }
 
+        // console.log(html);
+
         if(res.statusCode !== 200) {
-            var erro = 'Impossível consultar a disponibilidade neste momento';
+            var erro = new Error('Impossível consultar a disponibilidade neste momento');
             return callback(erro);
         }
 
