@@ -3,6 +3,18 @@ var request = require('request'),
 
     url = 'http://www.nfe.fazenda.gov.br/portal/disponibilidade.aspx';
 
+function obterColuna(indice) {
+    return [
+        'autorizacao',
+        'retornoAutorizacao',
+        'inutilizacao',
+        'consultaProtocolo',
+        'statusServico',
+        'consultaCadastro',
+        'recepcaoEvento'
+    ][indice];
+}
+
 function obterStatus(imagem) {
     return {
         'imagens/bola_verde_P.png': 'disponivel',
@@ -25,15 +37,7 @@ function fazerParse(html) {
         resultado[autorizador] = {};
 
         $(tr).find('td > img').each(function(j, img) {
-            var coluna = [
-                    'autorizacao',
-                    'retornoAutorizacao',
-                    'inutilizacao',
-                    'consultaProtocolo',
-                    'statusServico',
-                    'consultaCadastro',
-                    'recepcaoEvento'
-                ][j],
+            var coluna = obterColuna(j),
                 imagem = $(img).attr('src');
 
             resultado[autorizador][coluna] = obterStatus(imagem);
