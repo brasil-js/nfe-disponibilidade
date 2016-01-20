@@ -15,6 +15,7 @@ function obterColuna(indice) {
         'inutilizacao',
         'consultaProtocolo',
         'statusServico',
+        'tempoMedio',
         'consultaCadastro',
         'recepcaoEvento'
     ][indice];
@@ -58,9 +59,13 @@ function fazerParse(html) {
         autorizador = autorizador.toLowerCase();
         resultado[autorizador] = {};
 
-        $(tr).find('td > img').each(function(j, img) {
+        $(tr).find('td:not(:first-child)').each(function(j, td) {
             var coluna = obterColuna(j),
-                imagem = $(img).attr('src');
+                imagem = $(td).find('img').attr('src');
+
+            if(coluna === 'tempoMedio') {
+                return;
+            }
 
             resultado[autorizador][coluna] = obterStatus(imagem);
         });
@@ -80,8 +85,6 @@ function consultarDisponibilidade(callback) {
         if(err) {
             return callback(err);
         }
-
-        // console.log(html);
 
         if(res.statusCode !== 200) {
             var erro = new Error('Impossível consultar a disponibilidade neste momento');

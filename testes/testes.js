@@ -58,6 +58,24 @@ module.exports = {
         });
     },
 
+    'Retorna erro quando a resposta demora mais que 5 segundos - 1': function(test) {
+        nock(url).get('/disponibilidade.aspx').delayConnection(5100).reply(200);
+
+        nfeDisponibilidade(function(err) {
+            test.equal(err.message, 'ETIMEDOUT');
+            test.done();
+        });
+    },
+
+    'Retorna erro quando a resposta demora mais que 5 segundos - 2': function(test) {
+        nock(url).get('/disponibilidade.aspx').socketDelay(5100).reply(200);
+
+        nfeDisponibilidade(function(err) {
+            test.equal(err.message, 'ESOCKETTIMEDOUT');
+            test.done();
+        });
+    },
+
     'Faz o parse adequadamente todos autorizados estao ok': executarCasoDeTeste('tudoOk'),
     'Faz o parse adequadamente quando go esta totalmente fora do ar': executarCasoDeTeste('goTotalmenteForaDoAr'),
 };
